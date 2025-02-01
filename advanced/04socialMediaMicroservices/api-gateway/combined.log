@@ -1,0 +1,39 @@
+{"level":"info","message":"API Gateway is listening on port 3000","service":"api-gateway","timestamp":"2025-01-04T02:23:10.741Z"}
+{"level":"info","message":"Identity Service is running on port http://localhost:3001","service":"api-gateway","timestamp":"2025-01-04T02:23:10.746Z"}
+{"level":"info","message":"Redis Url is redis://localhost:6379","service":"api-gateway","timestamp":"2025-01-04T02:23:10.747Z"}
+{"level":"info","message":"API Gateway is listening on port 3000","service":"api-gateway","timestamp":"2025-01-04T02:24:01.157Z"}
+{"level":"info","message":"Identity Service is running on port http://localhost:3001","service":"api-gateway","timestamp":"2025-01-04T02:24:01.164Z"}
+{"level":"info","message":"Redis Url is redis://localhost:6379","service":"api-gateway","timestamp":"2025-01-04T02:24:01.165Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-01-04T13:12:47.900Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T13:12:47.901Z"}
+{"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'replace')","service":"api-gateway","timestamp":"2025-01-04T13:12:47.904Z"}
+{"level":"info","message":"API Gateway is listening on port 3000","service":"api-gateway","timestamp":"2025-01-04T13:15:00.508Z"}
+{"level":"info","message":"Identity Service is running on port http://localhost:3001","service":"api-gateway","timestamp":"2025-01-04T13:15:00.517Z"}
+{"level":"info","message":"Redis Url is redis://localhost:6379","service":"api-gateway","timestamp":"2025-01-04T13:15:00.518Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-01-04T13:15:06.402Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T13:15:06.403Z"}
+{"level":"info","message":"Response Received from Identity Service: 201","service":"api-gateway","timestamp":"2025-01-04T13:15:07.571Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-01-04T13:30:39.752Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T13:30:39.754Z"}
+{"level":"error","message":"Proxy Error: read ECONNRESET","service":"api-gateway","timestamp":"2025-01-04T13:32:52.937Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-01-04T13:32:58.528Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T13:32:58.529Z"}
+{"level":"error","message":"Proxy Error: read ECONNRESET","service":"api-gateway","timestamp":"2025-01-04T13:36:33.042Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-01-04T13:37:07.747Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T13:37:07.748Z"}
+{"level":"info","message":"Response Received from Identity Service: 500","service":"api-gateway","timestamp":"2025-01-04T13:37:07.829Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-01-04T13:38:37.052Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T13:38:37.052Z"}
+{"level":"info","message":"Response Received from Identity Service: 200","service":"api-gateway","timestamp":"2025-01-04T13:38:37.257Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-01-04T14:19:41.358Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T14:19:41.359Z"}
+{"level":"info","message":"Response Received from Identity Service: 201","service":"api-gateway","timestamp":"2025-01-04T14:19:41.887Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-01-04T14:19:59.011Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T14:19:59.012Z"}
+{"level":"info","message":"Response Received from Identity Service: 400","service":"api-gateway","timestamp":"2025-01-04T14:19:59.028Z"}
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-01-04T14:20:03.195Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T14:20:03.196Z"}
+{"level":"info","message":"Response Received from Identity Service: 429","service":"api-gateway","timestamp":"2025-01-04T14:20:03.208Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-01-04T14:20:24.496Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-01-04T14:20:24.499Z"}
+{"level":"info","message":"Response Received from Identity Service: 200","service":"api-gateway","timestamp":"2025-01-04T14:20:24.891Z"}

@@ -1,0 +1,4 @@
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-01-04T23:16:05.410Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-01-04T23:16:05.926Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-01-04T23:16:25.901Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-01-04T23:16:26.300Z"}

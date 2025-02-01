@@ -1,0 +1,18 @@
+{
+  "name": "03redisconcepts",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "ioredis": "^5.4.2",
+    "redis": "^4.7.0"
+  }
+}
