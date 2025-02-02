@@ -24,3 +24,9 @@ const validateLogin = (data) => {
 
 
 module.exports = {validateRegistration, validateLogin};
+
+
+/*
+If everything is valid, Joi returns { value: data } (no error).
+If validation fails, Joi returns { error: details }.
+*/

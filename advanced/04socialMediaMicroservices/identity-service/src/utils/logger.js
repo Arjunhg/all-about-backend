@@ -9,7 +9,7 @@ const logger = winston.createLogger({
         winston.format.splat(), //support for message templating
         winston.format.json() //logging all message in json
     ),
-    defaultMeta: { service: 'api-gateway' },
+    defaultMeta: { service: 'identity-service' },
     transports: [ //output destinations for the logs
         new winston.transports.Console({ //logs will appear in terminal with the given format
             format: winston.format.combine(

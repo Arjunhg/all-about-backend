@@ -11,3 +11,5 @@ const errorHandler = (err, req, res, next) => {
     )
 }
 module.exports = errorHandler;
+
+//1️⃣ If an error occurs in any route or middleware, Express will automatically call this function.

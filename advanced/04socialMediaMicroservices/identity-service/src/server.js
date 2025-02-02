@@ -55,11 +55,11 @@ app.use((req,res,next) => {
     })
 })
 
-// IP based rate limiting for sensitive endpoints
+// IP based rate limiting for sensitive endpoints. Like register user, login etc
 const sensitiveEndpointsLimiter = rateLimit({
     windowMs: 15*60*1000, // 15 minutes in milliseconds// for how many time you want to limit the request
     max: 5, // how many requests you want to allow in a given window
-    standardHeaders: true, // return rate limit info in the `RateLimit-*` headers (RateLimit-Limit, RateLimit-Remaining, and RateLimit-Reset)
+    standardHeaders: true, // return rate limit info in the `RateLimit-*` headers (RateLimit-Limit, RateLimit-Remaining, and RateLimit-Reset). Lets the client know how many requests they have left in res header
     legacyHeaders: false, // disable the `X-RateLimit-*` headers
     handler: (req, res) => {
         logger.warn(`Sensitive Endpoint Rate limit exceeded for IP ${req.ip}`);
