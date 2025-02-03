@@ -1,12 +1,6 @@
 const cloudinary = require('cloudinary').v2;
 const logger = require('./logger');
 
-// cloudinary.config({
-//     cloud_name: "drrtjxhb2",
-//     api_key: "335924532418662",
-//     api_secret: "8y-a3boNuryi76bHGufy-tSr_28"
-// })
-
 cloudinary.config({
     cloud_name: process.env.cloud_name,
     api_key: process.env.apiKey,
