@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
     },
     mediaIds: [
         {
-            type: String,
+            type: String, //will be coming from media service
         }
     ],
     createdAt: {

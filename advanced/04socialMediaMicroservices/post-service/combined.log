@@ -151,3 +151,27 @@
 {"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:47:34.779Z"}
 {"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:47:34.780Z"}
 {"level":"info","message":"get post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:47:34.782Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T11:17:02.601Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T11:17:03.592Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T11:18:55.534Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T11:18:56.247Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-03T13:23:21.483Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T13:23:21.486Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T13:23:21.495Z"}
+{"level":"info","message":"Create post endpoint hit","service":"post-service","timestamp":"2025-02-03T13:23:21.497Z"}
+{"0":"\"","1":"m","10":" ","11":"i","12":"s","13":" ","14":"n","15":"o","16":"t","17":" ","18":"a","19":"l","2":"e","20":"l","21":"o","22":"w","23":"e","24":"d","3":"d","4":"i","5":"a","6":"I","7":"d","8":"s","9":"\"","level":"warn","message":"Validation Error","service":"post-service","timestamp":"2025-02-03T13:23:21.510Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T13:25:22.358Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T13:25:23.089Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-03T13:25:35.546Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T13:25:35.547Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T13:25:35.551Z"}
+{"level":"info","message":"Create post endpoint hit","service":"post-service","timestamp":"2025-02-03T13:25:35.555Z"}
+{"$__":{"$versionError":null,"activePaths":{"paths":{"content":"require","user":"require"},"states":{"default":{},"modify":{},"require":{"content":true,"user":true}}},"backup":{"activePaths":{"default":{"_id":true,"createdAt":true},"modify":{"content":true,"mediaIds":true,"updatedAt":true,"user":true}},"validationError":null},"cachedRequired":{},"inserting":true,"op":null,"pathsToScopes":{"mediaIds":{"__v":0,"_id":"67a0c3cf8c51e4406132f13e","content":"New post created for Test 6 with image","createdAt":"2025-02-03T13:25:35.591Z","mediaIds":["67a0c259cf7304a253c131a2"],"updatedAt":"2025-02-03T13:25:35.591Z","user":"679fb27e206c65e1ec3ec606"}},"saveOptions":null,"savedState":{},"saving":null,"validating":null},"$isNew":false,"_doc":{"__v":0,"_id":"67a0c3cf8c51e4406132f13e","content":"New post created for Test 6 with image","createdAt":"2025-02-03T13:25:35.591Z","mediaIds":["67a0c259cf7304a253c131a2"],"updatedAt":"2025-02-03T13:25:35.591Z","user":"679fb27e206c65e1ec3ec606"},"level":"info","message":"Post created successfully","service":"post-service","timestamp":"2025-02-03T13:25:35.690Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T13:26:18.999Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T13:26:19.002Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T13:26:19.011Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T13:26:19.016Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T13:26:28.551Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T13:26:28.552Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T13:26:28.554Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T13:26:28.556Z"}

@@ -13,3 +13,12 @@
 {"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'userId')","service":"api-gateway","timestamp":"2025-02-03T05:26:00.153Z"}
 {"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'userId')","service":"api-gateway","timestamp":"2025-02-03T05:26:32.140Z"}
 {"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'userId')","service":"api-gateway","timestamp":"2025-02-03T05:46:46.704Z"}
+{"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'startsWith')","service":"api-gateway","timestamp":"2025-02-03T11:20:36.864Z"}
+{"level":"error","message":"Proxy Error: ","service":"api-gateway","timestamp":"2025-02-03T11:27:23.730Z"}
+{"level":"error","message":"Proxy Error: read ECONNRESET","service":"api-gateway","timestamp":"2025-02-03T11:27:46.218Z"}
+{"level":"error","message":"Proxy Error: read ECONNRESET","service":"api-gateway","timestamp":"2025-02-03T11:28:10.560Z"}
+{"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'userId')","service":"api-gateway","timestamp":"2025-02-03T11:35:35.848Z"}
+{"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'userId')","service":"api-gateway","timestamp":"2025-02-03T11:35:56.106Z"}
+{"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'userId')","service":"api-gateway","timestamp":"2025-02-03T11:51:54.071Z"}
+{"level":"error","message":"Proxy Error: Cannot read properties of undefined (reading 'userId')","service":"api-gateway","timestamp":"2025-02-03T13:17:50.377Z"}
+{"level":"error","message":"Proxy Error: ","service":"api-gateway","timestamp":"2025-02-03T13:24:52.891Z"}
