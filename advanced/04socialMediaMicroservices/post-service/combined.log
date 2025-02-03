@@ -2,3 +2,152 @@
 {"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-01-04T23:16:05.926Z"}
 {"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-01-04T23:16:25.901Z"}
 {"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-01-04T23:16:26.300Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T12:10:21.863Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T12:10:22.717Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T12:11:38.688Z"}
+{"level":"error","message":"MongoDB Connection Failed The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"post-service","stack":"MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.\n    at NativeConnection.createClient (E:\\Web New\\nodejs\\advanced\\04socialMediaMicroservices\\post-service\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\connection.js:225:11)\n    at NativeConnection.openUri (E:\\Web New\\nodejs\\advanced\\04socialMediaMicroservices\\post-service\\node_modules\\mongoose\\lib\\connection.js:1016:34)\n    at Mongoose.connect (E:\\Web New\\nodejs\\advanced\\04socialMediaMicroservices\\post-service\\node_modules\\mongoose\\lib\\mongoose.js:446:15)\n    at Object.<anonymous> (E:\\Web New\\nodejs\\advanced\\04socialMediaMicroservices\\post-service\\src\\server.js:16:10)\n    at Module._compile (node:internal/modules/cjs/loader:1546:14)\n    at Object..js (node:internal/modules/cjs/loader:1689:10)\n    at Module.load (node:internal/modules/cjs/loader:1318:32)\n    at Function._load (node:internal/modules/cjs/loader:1128:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:315:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)","timestamp":"2025-02-02T12:11:38.696Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T12:12:07.748Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T12:12:08.874Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:12:22.034Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:12:22.956Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-02T13:19:45.565Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T13:19:45.566Z"}
+{"level":"warn","message":"Creating post Rate limit exceeded for IP ::1","service":"post-service","timestamp":"2025-02-02T13:19:45.569Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:21:43.218Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:21:44.405Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-02T13:21:56.516Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T13:21:56.517Z"}
+{"level":"info","message":"Create post endpoint hit","service":"post-service","timestamp":"2025-02-02T13:21:56.522Z"}
+{"_message":"Post validation failed","errors":{"content":{"kind":"required","message":"Path `content` is required.","name":"ValidatorError","path":"content","properties":{"message":"Path `content` is required.","path":"content","type":"required"}}},"level":"error","message":"Error while creating post Post validation failed: content: Path `content` is required.","service":"post-service","stack":"ValidationError: Post validation failed: content: Path `content` is required.\n    at Document.invalidate (E:\\Web New\\nodejs\\advanced\\04socialMediaMicroservices\\post-service\\node_modules\\mongoose\\lib\\document.js:3334:32)\n    at E:\\Web New\\nodejs\\advanced\\04socialMediaMicroservices\\post-service\\node_modules\\mongoose\\lib\\document.js:3095:17\n    at E:\\Web New\\nodejs\\advanced\\04socialMediaMicroservices\\post-service\\node_modules\\mongoose\\lib\\schemaType.js:1407:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","timestamp":"2025-02-02T13:21:56.535Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:24:44.420Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:24:45.454Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:24:53.465Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:24:54.404Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:25:28.212Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:25:28.963Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:25:54.441Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:25:55.279Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:26:08.961Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:26:09.568Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:28:46.639Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:28:47.557Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T13:29:28.150Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T13:29:28.801Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-02T13:29:42.120Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T13:29:42.121Z"}
+{"level":"info","message":"Create post endpoint hit","service":"post-service","timestamp":"2025-02-02T13:29:42.125Z"}
+{"0":"\"","1":"c","10":"i","11":"s","12":" ","13":"r","14":"e","15":"q","16":"u","17":"i","18":"r","19":"e","2":"o","20":"d","3":"n","4":"t","5":"e","6":"n","7":"t","8":"\"","9":" ","level":"warn","message":"Validation Error","service":"post-service","timestamp":"2025-02-02T13:29:42.135Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-02T13:30:11.269Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T13:30:11.270Z"}
+{"level":"info","message":"Create post endpoint hit","service":"post-service","timestamp":"2025-02-02T13:30:11.272Z"}
+{"$__":{"$versionError":null,"activePaths":{"paths":{"content":"require","user":"require"},"states":{"default":{},"modify":{},"require":{"content":true,"user":true}}},"backup":{"activePaths":{"default":{"_id":true,"createdAt":true},"modify":{"content":true,"mediaIds":true,"updatedAt":true,"user":true}},"validationError":null},"cachedRequired":{},"inserting":true,"op":null,"pathsToScopes":{"mediaIds":{"__v":0,"_id":"679f7363678d7a7d0e10adab","content":"New post created for Test 5","createdAt":"2025-02-02T13:30:11.284Z","mediaIds":[],"updatedAt":"2025-02-02T13:30:11.284Z","user":"679f06515f34cca77ef922f0"}},"saveOptions":null,"savedState":{},"saving":null,"validating":null},"$isNew":false,"_doc":{"__v":0,"_id":"679f7363678d7a7d0e10adab","content":"New post created for Test 5","createdAt":"2025-02-02T13:30:11.284Z","mediaIds":[],"updatedAt":"2025-02-02T13:30:11.284Z","user":"679f06515f34cca77ef922f0"},"level":"info","message":"Post created successfully","service":"post-service","timestamp":"2025-02-02T13:30:11.336Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T17:52:04.014Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T17:52:04.706Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T17:52:32.083Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T17:52:32.913Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-02T18:01:03.430Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T18:01:03.432Z"}
+{"level":"info","message":"Create post endpoint hit","service":"post-service","timestamp":"2025-02-02T18:01:03.436Z"}
+{"$__":{"$versionError":null,"activePaths":{"paths":{"content":"require","user":"require"},"states":{"default":{},"modify":{},"require":{"content":true,"user":true}}},"backup":{"activePaths":{"default":{"_id":true,"createdAt":true},"modify":{"content":true,"mediaIds":true,"updatedAt":true,"user":true}},"validationError":null},"cachedRequired":{},"inserting":true,"op":null,"pathsToScopes":{"mediaIds":{"__v":0,"_id":"679fb2dff6c1cb7c26884360","content":"New post created for Test 6","createdAt":"2025-02-02T18:01:03.449Z","mediaIds":[],"updatedAt":"2025-02-02T18:01:03.449Z","user":"679fb27e206c65e1ec3ec606"}},"saveOptions":null,"savedState":{},"saving":null,"validating":null},"$isNew":false,"_doc":{"__v":0,"_id":"679fb2dff6c1cb7c26884360","content":"New post created for Test 6","createdAt":"2025-02-02T18:01:03.449Z","mediaIds":[],"updatedAt":"2025-02-02T18:01:03.449Z","user":"679fb27e206c65e1ec3ec606"},"level":"info","message":"Post created successfully","service":"post-service","timestamp":"2025-02-02T18:01:03.505Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-02T18:01:16.457Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T18:01:16.458Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T18:01:34.767Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T18:01:35.715Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-02T18:01:39.167Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T18:01:39.168Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-02T18:02:49.580Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T18:02:49.583Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T18:06:04.066Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T18:06:04.930Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-02T18:06:10.164Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T18:06:10.165Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T18:06:38.785Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T18:06:39.773Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-02T18:07:39.733Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T18:07:39.734Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-02T18:07:39.738Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-02T18:13:13.129Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-02T18:13:14.087Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-02T18:13:32.418Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-02T18:13:32.419Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-02T18:13:32.423Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-02T18:13:32.425Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T05:02:23.346Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:02:23.348Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:02:23.350Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:02:23.352Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T05:02:27.106Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:02:27.108Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:02:27.112Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:02:27.114Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T05:02:44.247Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:02:44.248Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:02:44.251Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:02:44.252Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T05:02:46.454Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:02:46.455Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:02:46.459Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:02:46.460Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T05:02:48.660Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:02:48.661Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:02:48.663Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:02:48.665Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:04:15.873Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:04:17.155Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:06:39.190Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:06:40.902Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:09:58.512Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:09:59.132Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-03T05:10:17.343Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:10:17.346Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:10:17.357Z"}
+{"level":"info","message":"Create post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:10:17.362Z"}
+{"level":"error","message":"Error while creating post invalidateCache is not a function","service":"post-service","stack":"TypeError: invalidateCache is not a function\n    at createPost (E:\\Web New\\nodejs\\advanced\\04socialMediaMicroservices\\post-service\\src\\controllers\\post-controller.js:32:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-02-03T05:10:17.503Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:12:16.572Z"}
+{"level":"info","message":"Received POST request to /api/post/create-post","service":"post-service","timestamp":"2025-02-03T05:12:18.114Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:12:18.115Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:12:18.120Z"}
+{"level":"info","message":"Create post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:12:18.121Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:12:18.661Z"}
+{"$__":{"$versionError":null,"activePaths":{"paths":{"content":"require","user":"require"},"states":{"default":{},"modify":{},"require":{"content":true,"user":true}}},"backup":{"activePaths":{"default":{"_id":true,"createdAt":true},"modify":{"content":true,"mediaIds":true,"updatedAt":true,"user":true}},"validationError":null},"cachedRequired":{},"inserting":true,"op":null,"pathsToScopes":{"mediaIds":{"__v":0,"_id":"67a05032cce8a66de435eb12","content":"New post created for Test 6","createdAt":"2025-02-03T05:12:18.136Z","mediaIds":[],"updatedAt":"2025-02-03T05:12:18.136Z","user":"679fb27e206c65e1ec3ec606"}},"saveOptions":null,"savedState":{},"saving":null,"validating":null},"$isNew":false,"_doc":{"__v":0,"_id":"67a05032cce8a66de435eb12","content":"New post created for Test 6","createdAt":"2025-02-03T05:12:18.136Z","mediaIds":[],"updatedAt":"2025-02-03T05:12:18.136Z","user":"679fb27e206c65e1ec3ec606"},"level":"info","message":"Post created successfully","service":"post-service","timestamp":"2025-02-03T05:12:18.734Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T05:12:23.775Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:12:23.777Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:12:23.783Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:12:23.786Z"}
+{"level":"info","message":"Received GET request to /api/post/all-posts","service":"post-service","timestamp":"2025-02-03T05:12:28.110Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:12:28.111Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:12:28.113Z"}
+{"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:12:28.115Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:17:53.171Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:17:55.236Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:18:13.332Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:18:14.795Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:24:25.086Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:24:26.658Z"}
+{"level":"info","message":"Received GET request to /api/post/67a05032cce8a66de435eb12","service":"post-service","timestamp":"2025-02-03T05:27:23.403Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:27:23.404Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:27:23.405Z"}
+{"level":"info","message":"get post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:27:23.407Z"}
+{"level":"info","message":"Received GET request to /api/post/67a05032cce8a66de435eb12","service":"post-service","timestamp":"2025-02-03T05:28:30.709Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:28:30.710Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:28:30.711Z"}
+{"level":"info","message":"get post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:28:30.712Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:36:01.617Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:36:03.562Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:44:15.149Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:44:16.851Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:45:19.787Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:45:21.481Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:45:27.073Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:45:28.570Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-03T05:46:08.627Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-03T05:46:09.909Z"}
+{"level":"info","message":"Received DELETE request to /api/post/67a05032cce8a66de435eb12","service":"post-service","timestamp":"2025-02-03T05:47:22.261Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:47:22.263Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:47:22.264Z"}
+{"level":"info","message":"delete post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:47:22.267Z"}
+{"$__":{"activePaths":{"paths":{"__v":"init","_id":"init","content":"init","createdAt":"init","mediaIds":"init","updatedAt":"init","user":"init"},"states":{"default":{},"init":{"__v":true,"_id":true,"content":true,"createdAt":true,"mediaIds":true,"updatedAt":true,"user":true},"require":{}}},"skipId":true},"$isNew":false,"_doc":{"__v":0,"_id":"67a05032cce8a66de435eb12","content":"New post created for Test 6","createdAt":"2025-02-03T05:12:18.136Z","mediaIds":[],"updatedAt":"2025-02-03T05:12:18.136Z","user":"679fb27e206c65e1ec3ec606"},"level":"info","message":"Post deleted successfully","service":"post-service","timestamp":"2025-02-03T05:47:22.321Z"}
+{"level":"info","message":"Received GET request to /api/post/67a05032cce8a66de435eb12","service":"post-service","timestamp":"2025-02-03T05:47:34.778Z"}
+{"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T05:47:34.779Z"}
+{"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T05:47:34.780Z"}
+{"level":"info","message":"get post endpoint hit","service":"post-service","timestamp":"2025-02-03T05:47:34.782Z"}

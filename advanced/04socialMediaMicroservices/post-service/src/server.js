@@ -27,10 +27,10 @@ app.use((req, res, next) => {
     next();
 })
 
-// Ip based rate limit (like for post 10 request, for get 100 request)
+// rate limiter
 const createPostRateLimit = rateLimit({
     windowMs: 15*60*1000,
-    max: 10,
+    max: 100,
     standardHeaders: true,
     legacyHeaders: false,
     handler: (req, res) => {
@@ -61,11 +61,12 @@ const getPostRateLimit = rateLimit({
     })
 })
 app.use('/api/post/create-post', createPostRateLimit);
-app.use('/api/post/get-post', getPostRateLimit);
+app.use('/api/post/all-posts', getPostRateLimit);
 
 // routes -> pass redisClient to routes
 app.use('/api/post', (req, res, next) => {
-    req.redisClient = redisClient; //attaching redis client to request
+    logger.info("Attaching redis client to request object");
+    req.redisClient = redisClient; //attaching redis client to request object because we are going to use this in our controller. Dependancy Injection via middlewares
     next();
 }, postRoutes);
 

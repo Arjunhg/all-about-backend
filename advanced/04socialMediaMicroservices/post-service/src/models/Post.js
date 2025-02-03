@@ -22,7 +22,7 @@ const postSchema = new mongoose.Schema({
     }
 }, {timestamps: true});
 
-// because we will have different service for search we can skip this index 
+// since we will have different service for search we can skip this index 
 // postSchema.index({ content: "text"});
 
 const Post = mongoose.model("Post", postSchema);

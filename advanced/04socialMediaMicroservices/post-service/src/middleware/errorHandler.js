@@ -1,5 +1,7 @@
 const logger = require('../utils/logger');
 
+// same as other services
+
 const errorHandler = (err, req, res, next) => {
 
     logger.error(err.stack);

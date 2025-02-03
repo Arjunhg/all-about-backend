@@ -19,8 +19,9 @@
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.0.0",
     "ioredis": "^5.4.2",
+    "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.9.3",
+    "mongoose": "^8.9.6",
     "rate-limit-redis": "^4.2.0",
     "winston": "^3.17.0"
   },
