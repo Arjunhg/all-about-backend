@@ -1,0 +1,2 @@
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:42:08.246Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:52:59.634Z"}

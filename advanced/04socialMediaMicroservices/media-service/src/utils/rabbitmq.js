@@ -19,6 +19,7 @@ async function connectRabbitMQ(){
         return channel;
     } catch (error) {
         logger.error('Error connecting to RabbitMQ', error);
+        throw error;
     }
 }
 // to use this connection go to entry point of post service
@@ -50,6 +51,8 @@ async function consumeEvent(routingKey, callback){
     })
 
     logger.info(`Subscribed/Consumed to RabbitMQ Event with routing key ${routingKey}`);
+
+    // Now start server using rabbitMQ in server.js
 }
 
 module.exports = { connectRabbitMQ, publishEvent, consumeEvent };

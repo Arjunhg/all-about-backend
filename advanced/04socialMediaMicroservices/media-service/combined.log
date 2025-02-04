@@ -226,3 +226,80 @@
 {"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T15:15:06.645Z"}
 {"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T15:15:11.777Z"}
 {"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T15:15:13.213Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T15:15:19.305Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T15:15:20.562Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T16:40:14.664Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:40:16.412Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:41:19.448Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T16:42:22.621Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T16:42:22.629Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:42:24.376Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T16:43:51.437Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T16:43:51.444Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:43:52.154Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T16:44:50.982Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T16:44:50.988Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:44:51.613Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T16:45:08.274Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.deleted","service":"media-service","timestamp":"2025-02-04T16:45:08.288Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T16:45:08.293Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:45:09.063Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T16:45:54.383Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.deleted","service":"media-service","timestamp":"2025-02-04T16:45:54.392Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T16:45:54.396Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:45:55.049Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-02-04T16:48:18.858Z"}
+{"level":"info","message":"Request Body [object Object]","service":"media-service","timestamp":"2025-02-04T16:48:18.859Z"}
+{"level":"info","message":"Uploading media for user: 679fb27e206c65e1ec3ec606","service":"media-service","timestamp":"2025-02-04T16:48:18.876Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-02-04T16:48:18.877Z"}
+{"level":"info","message":"File details: name=a-celestial-ballet-of-stars-and-planets-swirling-in-a-cosmic-dance-.png, type=image/png","service":"media-service","timestamp":"2025-02-04T16:48:18.878Z"}
+{"level":"info","message":"Uploading file to cloudinary starting...","service":"media-service","timestamp":"2025-02-04T16:48:18.879Z"}
+{"level":"info","message":"File uploaded to cloudinary successfully. Public Id: -phi51oyqtdfgkghpha0s","service":"media-service","timestamp":"2025-02-04T16:48:23.024Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T16:56:38.932Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.deleted","service":"media-service","timestamp":"2025-02-04T16:56:38.945Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T16:56:38.949Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:56:42.748Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-02-04T16:57:07.909Z"}
+{"level":"info","message":"Request Body [object Object]","service":"media-service","timestamp":"2025-02-04T16:57:07.910Z"}
+{"level":"info","message":"Uploading media for user: 679fb27e206c65e1ec3ec606","service":"media-service","timestamp":"2025-02-04T16:57:07.923Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-02-04T16:57:07.924Z"}
+{"level":"info","message":"File details: name=dub.png, type=image/png","service":"media-service","timestamp":"2025-02-04T16:57:07.925Z"}
+{"level":"info","message":"Uploading file to cloudinary starting...","service":"media-service","timestamp":"2025-02-04T16:57:07.926Z"}
+{"level":"info","message":"File uploaded to cloudinary successfully. Public Id: -hw3y37nhldvynzuext24","service":"media-service","timestamp":"2025-02-04T16:57:11.202Z"}
+{"level":"info","message":"successfully deleted file from cloudinary cloud storage: hw3y37nhldvynzuext24","service":"media-service","timestamp":"2025-02-04T16:58:22.704Z"}
+{"0":"r","1":"e","2":"a","3":"s","4":"o","5":"n","6":":","level":"error","message":"Unhandled Rejection at:","service":"media-service","timestamp":"2025-02-04T16:58:22.753Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T16:58:54.300Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.deleted","service":"media-service","timestamp":"2025-02-04T16:58:54.310Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T16:58:54.315Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T16:58:55.044Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-02-04T16:59:55.272Z"}
+{"level":"info","message":"Request Body [object Object]","service":"media-service","timestamp":"2025-02-04T16:59:55.274Z"}
+{"level":"info","message":"Uploading media for user: 679fb27e206c65e1ec3ec606","service":"media-service","timestamp":"2025-02-04T16:59:55.284Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-02-04T16:59:55.285Z"}
+{"level":"info","message":"File details: name=dub.png, type=image/png","service":"media-service","timestamp":"2025-02-04T16:59:55.286Z"}
+{"level":"info","message":"Uploading file to cloudinary starting...","service":"media-service","timestamp":"2025-02-04T16:59:55.287Z"}
+{"level":"info","message":"File uploaded to cloudinary successfully. Public Id: -wqt9fkt9kpkyuyuy279u","service":"media-service","timestamp":"2025-02-04T16:59:58.027Z"}
+{"0":"r","1":"e","2":"a","3":"s","4":"o","5":"n","6":":","level":"error","message":"Unhandled Rejection at:","service":"media-service","timestamp":"2025-02-04T17:05:29.861Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-02-04T17:08:03.513Z"}
+{"level":"info","message":"Request Body [object Object]","service":"media-service","timestamp":"2025-02-04T17:08:03.514Z"}
+{"level":"info","message":"Uploading media for user: 679fb27e206c65e1ec3ec606","service":"media-service","timestamp":"2025-02-04T17:08:03.518Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-02-04T17:08:03.519Z"}
+{"level":"info","message":"File details: name=j.jpeg, type=image/jpeg","service":"media-service","timestamp":"2025-02-04T17:08:03.520Z"}
+{"level":"info","message":"Uploading file to cloudinary starting...","service":"media-service","timestamp":"2025-02-04T17:08:03.520Z"}
+{"level":"info","message":"File uploaded to cloudinary successfully. Public Id: -ddyqywy1bndu479dwdds","service":"media-service","timestamp":"2025-02-04T17:08:06.762Z"}
+{"level":"info","message":"successfully deleted file from cloudinary cloud storage: ddyqywy1bndu479dwdds","service":"media-service","timestamp":"2025-02-04T17:10:45.507Z"}
+{"0":"r","1":"e","2":"a","3":"s","4":"o","5":"n","6":":","level":"error","message":"Unhandled Rejection at:","service":"media-service","timestamp":"2025-02-04T17:10:45.554Z"}
+{"level":"info","message":"Received GET request to /api/media/get","service":"media-service","timestamp":"2025-02-04T17:11:08.889Z"}
+{"level":"info","message":"Request Body [object Object]","service":"media-service","timestamp":"2025-02-04T17:11:08.890Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:42:13.421Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:42:13.478Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:43:14.626Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:43:14.685Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:48:19.962Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:48:19.969Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:52:26.528Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Error connecting to RabbitMQ","service":"media-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1121:18)\n    at afterConnectMultiple (node:net:1688:7)","timestamp":"2025-02-04T20:53:08.331Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T21:05:26.520Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.deleted","service":"media-service","timestamp":"2025-02-04T21:05:26.580Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T21:05:26.583Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T21:05:27.163Z"}
