@@ -75,9 +75,25 @@ const uploadMedia = async(req, res) => {
         logger.error(`Error uploading media: ${error.message}`);
         res.status(500).json({
             success: false,
-            message: 'Internal Server Error'
+            message: 'Error uploading media'
         })
     }
 }
 
-module.exports = {uploadMedia};
+// after deleteMediaFromCloudinary in cloudinary.js
+const getAllMedia = async(req, res) => {
+
+    try {
+        
+        const results = await Media.find({});
+        res.json({results});
+    } catch (error) {
+        logger.error(`Error fetching media: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: 'Error fetching media'
+        })
+    }
+}
+
+module.exports = {uploadMedia, getAllMedia};

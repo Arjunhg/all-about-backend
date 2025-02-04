@@ -409,3 +409,10 @@
 {"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-02-03T13:26:28.545Z"}
 {"level":"info","message":"Validating token...","service":"api-gateway","timestamp":"2025-02-03T13:26:28.546Z"}
 {"level":"info","message":"Response Received from Post Service: 200","service":"api-gateway","timestamp":"2025-02-03T13:26:28.559Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-02-04T14:48:46.442Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-02-04T14:48:46.445Z"}
+{"level":"info","message":"Response Received from Identity Service: 200","service":"api-gateway","timestamp":"2025-02-04T14:48:47.379Z"}
+{"level":"info","message":"Received GET request to /v1/media/get","service":"api-gateway","timestamp":"2025-02-04T14:50:51.752Z"}
+{"level":"info","message":"Request Body [object Object]","service":"api-gateway","timestamp":"2025-02-04T14:50:51.753Z"}
+{"level":"info","message":"Validating token...","service":"api-gateway","timestamp":"2025-02-04T14:50:51.755Z"}
+{"level":"info","message":"Response Received from Media Service: 200","service":"api-gateway","timestamp":"2025-02-04T14:50:51.903Z"}

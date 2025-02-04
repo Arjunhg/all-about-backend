@@ -26,4 +26,20 @@ const uploadMediaToCloudinary = (file) => {
     })
 }
 
-module.exports = {uploadMediaToCloudinary};
+// after creating rabbitMQ server in post-service
+const deleteMediaFromCloudinary = async(publicId)=>{
+
+    try {
+        
+        const result = await cloudinary.uploader.destroy(publicId);
+        logger.info(`successfully deleted file from cloudinary cloud storage: ${publicId}`);
+        return result;
+
+    } catch (error) {
+        logger.error(`Error deleting file from cloudinary: ${error.message}`);
+        throw error;
+    }
+}
+// after it go to controller and create a getAllMedia function to check if the media is deleted or not(this function is for testing purpose)
+
+module.exports = {uploadMediaToCloudinary, deleteMediaFromCloudinary};

@@ -175,3 +175,15 @@
 {"level":"info","message":"Request Body [object Object]","service":"post-service","timestamp":"2025-02-03T13:26:28.552Z"}
 {"level":"info","message":"Attaching redis client to request object","service":"post-service","timestamp":"2025-02-03T13:26:28.554Z"}
 {"level":"info","message":"Get all post endpoint hit","service":"post-service","timestamp":"2025-02-03T13:26:28.556Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T11:12:03.161Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T11:12:04.224Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T11:31:50.782Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T11:31:52.271Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T11:33:29.012Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T11:33:30.723Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T11:33:53.063Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T11:33:53.069Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T11:33:54.400Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T11:34:07.506Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T11:34:07.517Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T11:34:08.192Z"}
