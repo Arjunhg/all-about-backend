@@ -187,3 +187,18 @@
 {"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T11:34:07.506Z"}
 {"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T11:34:07.517Z"}
 {"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T11:34:08.192Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T15:02:51.179Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T15:02:51.189Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T15:02:52.774Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T15:03:57.573Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T15:03:57.581Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T15:03:59.391Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T15:04:08.197Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T15:04:08.204Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T15:04:09.484Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T15:04:58.417Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T15:04:58.423Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T15:05:00.149Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"media-service","timestamp":"2025-02-04T15:06:47.307Z"}
+{"level":"info","message":"Post Service is listening on port 3002","service":"post-service","timestamp":"2025-02-04T15:06:47.316Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T15:06:49.036Z"}

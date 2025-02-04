@@ -2,6 +2,7 @@ const Post = require('../models/Post');
 const invalidateCache  = require('../utils/invalidateCache');
 const logger = require('../utils/logger');
 const { validateCreatePost } = require('../utils/validation');
+const { publishEvent } = require('../utils/rabbitmq');
 
 const createPost = async (req, res) => {
 
@@ -140,6 +141,14 @@ const deletePost = async (req, res) => {
                 success: false
             })
         }
+
+        // publish post delete method
+        await publishEvent('post.deleted', {
+            postId: post._id.toString(),
+            userId: req.user.userId,
+            mediaIds: post.mediaIds
+        })
+        // we will consume this event in media-service.
 
         await invalidateCache(req, req.params.id);
         logger.info("Post deleted successfully", post);

@@ -216,3 +216,13 @@
 {"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T14:38:23.254Z"}
 {"level":"info","message":"Received GET request to /api/media/get","service":"media-service","timestamp":"2025-02-04T14:50:51.797Z"}
 {"level":"info","message":"Request Body [object Object]","service":"media-service","timestamp":"2025-02-04T14:50:51.800Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T15:08:18.498Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T15:08:20.163Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T15:09:43.837Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T15:09:45.547Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T15:10:43.512Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T15:10:45.430Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T15:15:04.865Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T15:15:06.645Z"}
+{"level":"info","message":"Media Service is listening on port 3003","service":"media-service","timestamp":"2025-02-04T15:15:11.777Z"}
+{"level":"info","message":"Connected to MongoDB","service":"media-service","timestamp":"2025-02-04T15:15:13.213Z"}
