@@ -30,12 +30,24 @@ const createPost = async (req, res) => {
         })
 
         await newlyCreatedPost.save();
+
+        // event publish for search-service
+        await publishEvent('post.created', {
+            postId: newlyCreatedPost._id.toString(),
+            userId: newlyCreatedPost.user.toString(),
+            content: newlyCreatedPost.content,
+            createdAt: newlyCreatedPost.createdAt
+        })
+
         await invalidateCache(req, newlyCreatedPost._id.toString());
+
         logger.info("Post created successfully", newlyCreatedPost);
+
         res.status(201).json({
             success: true,
             message: "Post created successfully",
         })
+
     } catch (error) {
         logger.error("Error while creating post", error);
         res.status(500).json({

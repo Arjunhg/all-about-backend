@@ -1,0 +1,14 @@
+{"level":"info","message":"Connected to RabbitMQ","service":"post-service","timestamp":"2025-02-04T22:31:27.600Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.created","service":"post-service","timestamp":"2025-02-04T22:31:27.613Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T22:31:29.290Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"post-service","timestamp":"2025-02-04T22:36:28.008Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.created","service":"post-service","timestamp":"2025-02-04T22:36:28.023Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T22:36:28.457Z"}
+{"0":"6","1":"7","10":"e","11":"a","12":"e","13":"f","14":"1","15":"8","16":"1","17":"d","18":"8","19":"f","2":"a","20":"7","21":"5","22":"2","23":"8","3":"2","4":"9","5":"6","6":"a","7":"3","8":"5","9":"e","level":"info","message":"Post created successfully in search-service:","service":"post-service","timestamp":"2025-02-04T22:37:23.449Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"post-service","timestamp":"2025-02-04T22:38:43.775Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.created","service":"post-service","timestamp":"2025-02-04T22:38:43.787Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T22:38:44.717Z"}
+{"level":"info","message":"Connected to RabbitMQ","service":"post-service","timestamp":"2025-02-04T22:41:57.470Z"}
+{"level":"info","message":"Subscribed/Consumed to RabbitMQ Event with routing key post.created","service":"post-service","timestamp":"2025-02-04T22:41:57.480Z"}
+{"level":"info","message":"Connected to MongoDB","service":"post-service","timestamp":"2025-02-04T22:41:58.029Z"}
+{"0":"6","1":"7","10":"0","11":"d","12":"7","13":"4","14":"3","15":"7","16":"5","17":"d","18":"b","19":"4","2":"a","20":"e","21":"1","22":"9","23":"3","3":"2","4":"9","5":"7","6":"d","7":"2","8":"e","9":"4","level":"info","message":"Post created successfully in search-service:","service":"post-service","timestamp":"2025-02-04T22:42:26.397Z"}
