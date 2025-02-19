@@ -61,3 +61,12 @@ userEmitter.emit("LOGOUT", "john");
 userEmitter.emit("PURCHASE", "john", "shoes");
 userEmitter.emit("PROFILE_UPDATE", "john", "email");
 userEmitter.emit("SUMMARY");
+
+// userEmitter.on("GREET", (args) => {
+//     console.log(`Hello ${args.name} your age is ${args.age}`);
+// })
+
+// userEmitter.emit("GREET", {
+//     name: "John",
+//     age: 25
+// })
