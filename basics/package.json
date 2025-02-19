@@ -1,11 +1,11 @@
 {
   "name": "basics",
   "version": "1.0.0",
-  "main": "01nodejs/EventLoop.js",
+  "main": "01nodejs/CPUIntensive.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 01nodejs/EventLoop.js",
-    "dev": "nodemon 01nodejs/EventLoop.js"
+    "start": "node 01nodejs/CPUIntensive.js",
+    "dev": "nodemon 01nodejs/CPUIntensive.js"
   },
   "keywords": [],
   "author": "",
