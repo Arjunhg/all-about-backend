@@ -1,0 +1,18 @@
+{
+  "name": "basics",
+  "version": "1.0.0",
+  "main": "01nodejs/EventLoop.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node 01nodejs/EventLoop.js",
+    "dev": "nodemon 01nodejs/EventLoop.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
