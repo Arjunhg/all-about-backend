@@ -1,11 +1,11 @@
 {
   "name": "basics",
   "version": "1.0.0",
-  "main": "01nodejs/Streams/Streams.js",
+  "main": "01nodejs/Hash.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 01nodejs/Streams/Streams.js",
-    "dev": "nodemon --ignore eventlog.json 01nodejs/Streams/Streams.js"
+    "start": "node 01nodejs/Hash.js",
+    "dev": "nodemon --ignore eventlog.json 01nodejs/Hash.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,7 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "nodemon": "^3.1.9"
   }
 }
