@@ -1,11 +1,11 @@
 {
   "name": "basics",
   "version": "1.0.0",
-  "main": "01nodejs/Hash.js",
+  "main": "01nodejs/Streams/Streams.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 01nodejs/Hash.js",
-    "dev": "nodemon --ignore eventlog.json 01nodejs/Hash.js"
+    "start": "node 01nodejs/Streams/Streams.js",
+    "dev": "nodemon --ignore eventlog.json 01nodejs/Streams/Streams.js"
   },
   "keywords": [],
   "author": "",
