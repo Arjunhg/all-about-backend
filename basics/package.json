@@ -1,19 +1,20 @@
 {
   "name": "basics",
   "version": "1.0.0",
-  "main": "01nodejs/Streams/Streams.js",
+  "main": "02ExpressJs/01BasicAPI/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 01nodejs/Streams/Streams.js",
-    "dev": "nodemon --ignore eventlog.json 01nodejs/Streams/Streams.js"
+    "start": "node 02ExpressJs/01BasicAPI/server.js",
+    "dev": "nodemon --ignore eventlog.json 02ExpressJs/01BasicAPI/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "express": "^4.21.2",
     "nodemon": "^3.1.9"
   }
 }
