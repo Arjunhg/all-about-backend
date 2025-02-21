@@ -1,156 +1,471 @@
 import express from "express";
+import helmet from "helmet"; // Security middleware
+import cors from "cors"; // CORS middleware
+import rateLimit from "express-rate-limit"; // Rate limiting
+import morgan from "morgan"; // HTTP request logger
+import { v4 as uuidv4 } from "uuid"; // For request IDs and better user IDs
+import dotenv from "dotenv"; // Environment variable management
 import data from "./data/Data.js";
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 
-// Middleware to parse JSON request bodies
-app.use(express.json());
+// === SECURITY AND MIDDLEWARE SETUP ===
 
-// Use environment variable for port with a fallback to 8000 for flexibility in production
-const PORT = process.env.PORT || 8000;
+// Apply security headers
+/** 
+ * @see https://helmetjs.github.io/docs/
+ * Without Helmet:
+    HTTP/1.1 200 OK
+    X-Powered-By: Express
+ * With Helmet:
+    HTTP/1.1 200 OK
+    X-Frame-Options: DENY
+    X-Content-Type-Options: nosniff
+    Strict-Transport-Security: max-age=15552000; includeSubDomains
+    Referrer-Policy: no-referrer
+    Permissions-Policy: camera=(), microphone=(), geolocation=()
 
-// Basic route for testing the server
-app.get('/', (req, res) => {
-    res.status(200).send("Hello World!");
+*/
+app.use(helmet());//https://helmetjs.github.io/
+
+
+// Configure CORS
+app.use(cors({
+  origin: process.env.ALLOWED_ORIGINS?.split(',') || '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Set up rate limiting - prevent abuse/DOS attacks
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    message: { error: 'Too many requests, please try again later.' }
 });
+app.use('/api/', limiter);
 
-// GET /api/v1/users: Retrieve all users or filter by name via query parameter
-app.get('/api/v1/users', (req, res) => {
-    const { name } = req.query; // e.g., /api/v1/users?name=John
-    
-    if (name) {
-        // Filter users by name (case-sensitive; adjust to toLowerCase() if case-insensitive is needed)
-        const users = data.filter(user => user.name === name); 
-        // Use filter when you want multiple results. It returns an array of all elements that satisfy the condition.
-        // If no element satisfies the condition, it returns an empty array.
+// Request parsing middleware
+app.use(express.json({ limit: '1mb' })); // Limit payload size
+app.use(express.urlencoded({ extended: false }));
 
-        if (users.length === 0) {
-            return res.status(404).json({
-                message: "User Not Found"
-            });
-        }
-        return res.status(200).json(users);
-    }
-
-    // Return all users if no query parameter is provided
-    res.status(200).json(data);
-});
-
-// GET /api/v1/users/:id: Retrieve a single user by ID
-app.get('/api/v1/users/:id', (req, res) => {
-    const { id } = req.params;
-    const parsedId = parseInt(id);
-
-    // Validate that ID is a valid number
-    if (isNaN(parsedId)) {
-        return res.status(400).json({ message: "Invalid ID" });
-    }
-
-    // Find user by ID; assumes IDs are unique
-    const user = data.find(user => user.id === parsedId); 
-    // Use find when you want only one result. It returns the first element that satisfies the condition.
-    // If no element satisfies the condition, it returns undefined.
-
-    if (!user) {
-        return res.status(404).json({ message: "User Not Found" });
-    }
-
-    res.status(200).json(user);
-});
-
-// POST /api/v1/users: Create a new user
-app.post('/api/v1/users', (req, res) => {
-    const { name, displayName } = req.body;
-
-    // Validate required fields
-    if (!name || !displayName) {
-        return res.status(400).json({ message: "Name and displayName are required" });
-    }
-
-    const newUser = {
-        id: data.length + 1, // Simple ID generation; consider UUIDs in real production
-        name,
-        displayName
-    };
-
-    data.push(newUser);
-
-    // 201 Created is appropriate for resource creation
-    res.status(201).json({
-        message: "User Created Successfully",
-        data: newUser
-    });
-});
-
-// PUT /api/v1/users/:id: Update an existing user
-app.put('/api/v1/users/:id', (req, res) => {
-    const { id } = req.params;
-    const parsedId = parseInt(id);
-
-    // Validate that ID is a valid number
-    if (isNaN(parsedId)) {
-        return res.status(400).json({ message: "Invalid ID" });
-    }
-
-    const userIndex = data.findIndex(user => user.id === parsedId);
-
-    if (userIndex === -1) {
-        return res.status(404).json({ message: "User Not Found" });
-    }
-
-    // Only update allowed fields (name and displayName) to prevent overwriting id or adding new fields
-    const { name, displayName } = req.body;
-    if (name) data[userIndex].name = name;
-    if (displayName) data[userIndex].displayName = displayName;
-
-    /*
-        -data[userIndex] = { ...data[userIndex], ...body }
-        - Allowed any field in the body to overwrite or add to the user object, including id
-        - Current approach ensures only name and displayName are updated
-        - Example:
-            Existing user:
-            {
-                "id": 1,
-                "name": "John",
-                "displayName": "Johnny"
-            }
-            PUT /api/v1/users/1
-            Content-Type: application/json
-            {
-                "name": "Johnny",
-                "extraField": "ignored"
-            }
-            Output:
-            {
-                "message": "User Updated Successfully",
-                "data": {
-                    "id": 1,
-                    "name": "Johnny",
-                    "displayName": "Johnny"
-                }
-            }
-    */
-
-    res.status(200).json({
-        message: "User Updated Successfully",
-        data: data[userIndex]
-    });
-});
-
+// Logging middleware - use 'dev' for development, 'combined' for production
+const logFormat = process.env.NODE_ENV === 'production' ? 'combined' : 'dev';
+app.use(morgan(logFormat));
 /*
-    Spread operator notes:
-    - { ...obj1, ...obj2 } = Merges obj1 and obj2, with obj2 overwriting duplicate keys.
-    - { ...obj1, obj2 } = Keeps obj1's properties, but adds obj2 as a nested object under the key 'obj2'.
+    * Production log format:
+        - 192.168.1.1 - - [21/Feb/2025:10:15:32 +0000] "GET /api/users HTTP/1.1" 200 245 "-" "Mozilla/5.0"
+    * Development log format:
+        - GET /api/users 200 5.123 ms - 245
 */
 
-// Global error handler to catch unhandled errors (e.g., invalid JSON in request body)
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ message: "Internal Server Error" });
+
+// Add request ID for tracking
+app.use((req, res, next) => {
+    req.id = uuidv4(); // Generate a unique request ID
+    res.setHeader('X-Request-ID', req.id); // Attach it to response headers
+    next(); // Pass control to the next middleware
+});
+  
+
+// Environment-specific settings
+const PORT = process.env.PORT || 8000;
+const isProduction = process.env.NODE_ENV === 'production';
+
+// === ROUTES ===
+
+/**
+ * Health check endpoint for monitoring and load balancers
+    - Load balancers (e.g., AWS ALB, Nginx, Kubernetes) periodically call /health to check if the server is running.
+    - Monitoring services (e.g., Prometheus, Datadog, New Relic) can ping this endpoint to detect downtime.
+ * @route GET /health
+ * @returns {Object} 200 - Health status with uptime
+ */
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()//YYYY-MM-DDTHH:mm:ss.sssZ
+  });
 });
 
-// Start the server
-// Corrected callback signature from (req, res) => to () =>
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+/**
+ * Basic route for testing the server
+ * @route GET /
+ * @returns {string} 200 - Welcome message
+ */
+app.get('/', (req, res) => {
+  res.status(200).send("API Server Running");
 });
+
+/**
+ * Retrieve all users or filter by name via query parameter
+ * @route GET /api/v1/users
+ * @param {string} name.query - Optional name filter
+ * @returns {Array<Object>} 200 - Array of user objects
+ * @returns {Object} 404 - Error message when no users match filter
+ */
+app.get('/api/v1/users', (req, res) => {
+  try {
+    const { name } = req.query;
+    
+    if (name) {
+      // Case-insensitive name search for better UX
+      const users = data.filter(user => 
+        user.name.toLowerCase() === name.toLowerCase()
+      );
+      
+      if (users.length === 0) {
+        return res.status(404).json({
+          success: false,
+          message: "No users found matching the provided name"
+        });
+      }
+      
+      return res.status(200).json({
+        success: true,
+        count: users.length,
+        data: users
+      });
+    }
+    
+    // Pagination support- GET /api/v1/users?page=1&limit=10
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const startIndex = (page - 1) * limit;// Where to start in the dataset.
+    const endIndex = page * limit;
+    const total = data.length;
+    
+    // Create pagination object
+    const pagination = {};
+    if (endIndex < total) {
+      pagination.next = {
+        page: page + 1,
+        limit
+      };
+    }
+    if (startIndex > 0) {
+      pagination.prev = {
+        page: page - 1,
+        limit
+      };
+    }
+    
+    // Return paginated results
+    return res.status(200).json({
+      success: true,
+      count: data.length,
+      pagination,
+      data: data.slice(startIndex, endIndex)
+    });
+  } catch (error) {
+    console.error(`[ERROR][${req.id}] GET /api/v1/users:`, error.message);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error while retrieving users"
+    });
+  }
+});
+
+/**
+ * Retrieve a single user by ID
+ * @route GET /api/v1/users/:id
+ * @param {number} id.path.required - User ID
+ * @returns {Object} 200 - User object
+ * @returns {Object} 400 - Error message when ID is invalid
+ * @returns {Object} 404 - Error message when user not found
+ */
+app.get('/api/v1/users/:id', (req, res) => {
+  try {
+    const { id } = req.params;
+    const parsedId = parseInt(id);
+    
+    // Validate that ID is a valid number
+    if (isNaN(parsedId)) {
+      return res.status(400).json({ 
+        success: false,
+        message: "Invalid ID format. User ID must be a number." 
+      });
+    }
+    
+    // Find user by ID
+    const user = data.find(user => user.id === parsedId);
+    
+    if (!user) {
+      return res.status(404).json({ 
+        success: false,
+        message: "User not found with the provided ID" 
+      });
+    }
+    
+    res.status(200).json({
+      success: true,
+      data: user
+    });
+  } catch (error) {
+    console.error(`[ERROR][${req.id}] GET /api/v1/users/${req.params.id}:`, error.message);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error while retrieving user"
+    });
+  }
+});
+
+/**
+ * Create a new user
+ * @route POST /api/v1/users
+ * @param {Object} requestBody.body.required - User information
+ * @param {string} requestBody.body.name.required - User's name
+ * @param {string} requestBody.body.displayName.required - User's display name
+ * @returns {Object} 201 - Created user with success message
+ * @returns {Object} 400 - Error message when required fields are missing
+ */
+app.post('/api/v1/users', (req, res) => {
+  try {
+    const { name, displayName } = req.body;
+    
+    // Enhanced validation
+    const validationErrors = [];
+    if (!name) validationErrors.push("Name is required");
+    if (!displayName) validationErrors.push("Display name is required");
+    if (name && typeof name !== 'string') validationErrors.push("Name must be a string");
+    if (displayName && typeof displayName !== 'string') validationErrors.push("Display name must be a string");
+    
+    if (validationErrors.length > 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Validation failed",
+        errors: validationErrors
+      });
+    }
+    
+    // Check for duplicates (optional depending on business rules)
+    const existingUser = data.find(user => 
+      user.name.toLowerCase() === name.toLowerCase()
+    );
+    
+    if (existingUser) {
+      return res.status(409).json({
+        success: false,
+        message: "A user with this name already exists"
+      });
+    }
+    
+    // Use UUID for production, but keep sequential IDs for simplicity here
+    // In production, you'd likely use: id: uuidv4(),
+    const newUser = {
+      id: Math.max(...data.map(user => user.id), 0) + 1, // Better ID generation
+      name: name.trim(),
+      displayName: displayName.trim(),
+      createdAt: new Date().toISOString()
+    };
+    
+    data.push(newUser);
+    
+    // 201 Created is appropriate for resource creation
+    res.status(201).json({
+      success: true,
+      message: "User created successfully",
+      data: newUser
+    });
+  } catch (error) {
+    console.error(`[ERROR][${req.id}] POST /api/v1/users:`, error.message);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error while creating user"
+    });
+  }
+});
+
+/**
+ * Update an existing user
+ * @route PUT /api/v1/users/:id
+ * @param {number} id.path.required - User ID
+ * @param {Object} requestBody.body - Fields to update
+ * @param {string} requestBody.body.name - User's updated name
+ * @param {string} requestBody.body.displayName - User's updated display name
+ * @returns {Object} 200 - Updated user with success message
+ * @returns {Object} 400 - Error message when ID or fields are invalid
+ * @returns {Object} 404 - Error message when user not found
+ */
+app.put('/api/v1/users/:id', (req, res) => {
+  try {
+    const { id } = req.params;
+    const parsedId = parseInt(id);
+    
+    // Validate that ID is a valid number
+    if (isNaN(parsedId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid ID format. User ID must be a number."
+      });
+    }
+    
+    // Find user index
+    const userIndex = data.findIndex(user => user.id === parsedId);
+    
+    if (userIndex === -1) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found with the provided ID"
+      });
+    }
+    
+    // Validate update fields
+    const { name, displayName } = req.body;
+    const validationErrors = [];
+    
+    if (name !== undefined && typeof name !== 'string') {
+      validationErrors.push("Name must be a string");
+    }
+    
+    if (displayName !== undefined && typeof displayName !== 'string') {
+      validationErrors.push("Display name must be a string");
+    }
+    
+    if (validationErrors.length > 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Validation failed",
+        errors: validationErrors
+      });
+    }
+    
+    // Only update provided fields (partial update)
+    const updatedUser = { ...data[userIndex] };
+    
+    if (name !== undefined) updatedUser.name = name.trim();
+    if (displayName !== undefined) updatedUser.displayName = displayName.trim();
+    updatedUser.updatedAt = new Date().toISOString();
+    
+    // Update user
+    data[userIndex] = updatedUser;
+    
+    res.status(200).json({
+      success: true,
+      message: "User updated successfully",
+      data: updatedUser
+    });
+  } catch (error) {
+    console.error(`[ERROR][${req.id}] PUT /api/v1/users/${req.params.id}:`, error.message);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error while updating user"
+    });
+  }
+});
+
+/**
+ * Delete a user by ID
+ * @route DELETE /api/v1/users/:id
+ * @param {number} id.path.required - User ID to delete
+ * @returns {Object} 200 - Success message
+ * @returns {Object} 400 - Error message when ID is invalid
+ * @returns {Object} 404 - Error message when user not found
+ */
+app.delete('/api/v1/users/:id', (req, res) => {
+  try {
+    const { id } = req.params;
+    const parsedId = parseInt(id);
+    
+    // Validate that ID is a valid number
+    if (isNaN(parsedId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid ID format. User ID must be a number."
+      });
+    }
+    
+    // Find user index
+    const userIndex = data.findIndex(user => user.id === parsedId);
+    
+    if (userIndex === -1) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found with the provided ID"
+      });
+    }
+    
+    // Remove user
+    data.splice(userIndex, 1);
+    
+    res.status(200).json({
+      success: true,
+      message: "User deleted successfully"
+    });
+  } catch (error) {
+    console.error(`[ERROR][${req.id}] DELETE /api/v1/users/${req.params.id}:`, error.message);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error while deleting user"
+    });
+  }
+});
+
+// === ERROR HANDLING ===
+
+// 404 handler for undefined routes
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `Route ${req.originalUrl} not found`
+  });
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const errorMessage = isProduction 
+    ? 'Internal server error'
+    : err.message || 'Something went wrong';
+  
+  console.error(`[ERROR][${req.id}] Unhandled exception:`, err.stack);
+  
+  res.status(statusCode).json({
+    success: false,
+    message: errorMessage,
+    ...(isProduction ? {} : { stack: err.stack })
+  });
+});
+
+// === SERVER STARTUP ===
+
+// Process error handlers to prevent crashes
+process.on('uncaughtException', (error) => {
+  console.error('UNCAUGHT EXCEPTION:', error);
+  // Log to monitoring service in production
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('UNHANDLED REJECTION:', reason);
+  // Log to monitoring service in production
+});
+
+// Start the server with graceful shutdown support
+const server = app.listen(PORT, () => {
+  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+});
+
+// Graceful shutdown
+const shutdown = () => {
+  console.log('Shutting down server gracefully...');
+  server.close(() => {
+    console.log('Server closed');
+    process.exit(0);
+  });
+  
+  // Force close after timeout
+  setTimeout(() => {
+    console.error('Could not close connections in time, forcefully shutting down');
+    process.exit(1);
+  }, 10000);
+};
+
+// Listen for termination signals
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);
+
+export default app; // Enable testing by exporting the app
