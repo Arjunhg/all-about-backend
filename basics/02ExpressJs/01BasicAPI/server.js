@@ -465,7 +465,7 @@ const shutdown = () => {
 };
 
 // Listen for termination signals
-process.on('SIGTERM', shutdown);
-process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);//docker stop my-container. Docker sends SIGTERM before forcefully killing the process.
+process.on('SIGINT', shutdown);//CTRL+C in terminal
 
 export default app; // Enable testing by exporting the app
