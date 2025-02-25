@@ -4,8 +4,8 @@
   "main": "02ExpressJs/01BasicAPI/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 02ExpressJs/01BasicAPI/server.js",
-    "dev": "nodemon --ignore eventlog.json 02ExpressJs/01BasicAPI/server.js"
+    "start": "node 03MongoDB/index.js",
+    "dev": "nodemon --ignore eventlog.json 03MongoDB/index.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "express": "^4.21.2",
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.0.0",
+    "mongoose": "^8.10.1",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.9",
     "uuid": "^11.1.0"

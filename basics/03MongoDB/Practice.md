@@ -63,15 +63,16 @@
       })
       ```
 
+# PROJECTION & EMBEDDED DOCUMENTS
 - Find all comments where the comments array contains a user named "user1".
     ```
-    db.inventory.find({
+    db.comments.find({
       "comments.user": "user1"
     })
     ```
 - Find comments where a comment exists with the user "user5" and the text contains "aggregations".
     ```
-    db.inventory.find({
+    db.comments.find({
       comments: {
         $elemMatch: {user: "user5", text: "aggregation"}
       }
@@ -79,7 +80,7 @@
 
     or...
 
-    db.inventory.find({
+    db.comments.find({
       comments: {
         $elemMatch: {user: "user5", text: /aggregation/i}
       }
@@ -87,24 +88,24 @@
     ```
 - Find comments where the metadata.likes field contains at least 85 and 90.
     ```
-    db.inventory.find({
+    db.comments.find({
       "metadata.likes" : {$all: [85, 40]}
     })
     ```
 - Find comments with metadata.likes greater than or equal to 100.
     ```
-    db.inventory.find({
+    db.comments.find({
       "metadata.likes": {$gte: 100}
     })
 
     ```
 - Return only the article title and the user fields of comments.
     ```
-    db.inventory.find({}, {title: 1, "comments.user":1, _id: 0})
+    db.comments.find({}, {title: 1, "comments.user":1, _id: 0})
     ```
 - Find comments where comments include both "user7" and "user8".
     ```
-    db.inventory.find({
+    db.comments.find({
       comments: {
         $elemMatch: {"comments.user": "user7", "comments.user": "user8"}
       }
@@ -112,7 +113,7 @@
 
     or...
 
-    db.inventory.find({
+    db.comments.find({
       "comments.user": {$all: ["user7", "user8"]}
     })
 
@@ -130,28 +131,40 @@
     ```
 - Count comments where metadata.views is greater than 2000.
     ```
-    db.inventory.find({
+    db.comments.find({
       "metadata.view": {$gt: 2000}
     }).count()
 
     or...
 
-    db.inventory.count({
+    db.comments.count({
       "metadata.view": {$gt: 2000}
     })
 
-    - db.inventory.count({...}) is optimized to return just the count of matching documents without retrieving them.
+    - db.comments.count({...}) is optimized to return just the count of matching documents without retrieving them.
 
-    - db.inventory.find({...}).count() first retrieves the documents (though not fully) and then counts them, which can be slightly less efficient.
+    - db.comments.find({...}).count() first retrieves the documents (though not fully) and then counts them, which can be slightly less efficient.
 
     - In MongoDB 4.0+, count({...}) is deprecated in favor of estimatedDocumentCount() or countDocuments({...}), but for simple queries, it still works.
     ```
 - Find comments authored by "Sarah Adams" that also have at least one comment from "user17".
     ```
-    db.inventory.find({
+    db.comments.find({
       author: "Sarah Adams",
       "comments.user": "user17"
     })
     ```
 - Fetch only the title and metadata.views for comments with more than 3000 views.
+    ```
+    db.comments.find(
+      {"metadata.views": {$gt: 3000},
+      {title: 1, "metadata.views": 1, _id: 0}
+    )
+
+    ```
 - Find comments where the content mentions "React".
+    ```
+    db.comments.find({
+      content: {$regex: "React", $options: "i"}
+    })
+    ```
