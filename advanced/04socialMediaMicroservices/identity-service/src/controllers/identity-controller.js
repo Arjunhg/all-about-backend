@@ -1,7 +1,7 @@
 // First create model for refresh token: RefreshToken.js
 
 const RefreshToken = require('../models/RefreshToken');
-const User = require('../models/user');
+const User = require('../models/User');
 const generateToken = require('../utils/generateToken');
 const logger = require('../utils/logger');
 const { validateRegistration, validateLogin } = require('../utils/validation');

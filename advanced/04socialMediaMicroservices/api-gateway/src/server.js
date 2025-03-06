@@ -94,6 +94,7 @@ app.use('/v1/post', validateToken, proxy(process.env.POST_SERVICE_URL, {
     }
 }))
 
+
 // setting up proxy for our media-service
 app.use('/v1/media', validateToken, proxy(process.env.MEDIA_SERVICE_URL, {
     ...proxyOptions,
