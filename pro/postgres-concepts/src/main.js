@@ -1,4 +1,9 @@
-const { getUsersWhere, getSortedUsers, getPaginatedUsers } = require('./concepts/02filtering-sorting');
+const { 
+    getUsersWhere, 
+    getSortedUsers, 
+    getPaginatedUsers 
+} = require('./concepts/02filtering-sorting');
+
 const { 
     createUsersTable,
     insertUser,
@@ -7,6 +12,7 @@ const {
     updateUserEmail,
     deleteUser
 } = require('./concepts/01basic-queries');
+const { createPostsTable, insertNewPost } = require('./concepts/03relationships');
 
 // Function to run all tests
 async function testQueries() {
@@ -39,15 +45,15 @@ async function testQueries() {
         console.log(`Retrieved ${allUsers.length} users`);
         console.log('----------');
 
-        // // Delete user
-        // console.log('Testing user deletion:');
-        // const deletedUser = await deleteUser('test_user1');
-        // console.log('Deleted user:', deletedUser);
-        // console.log('----------');
+        // Delete user
+        console.log('Testing user deletion:');
+        const deletedUser = await deleteUser('test_user1');
+        console.log('Deleted user:', deletedUser);
+        console.log('----------');
 
-        // // Verify deletion
-        // const checkUser = await findUserByUsername('test_user1');
-        // console.log('User after deletion:', checkUser);
+        // Verify deletion
+        const checkUser = await findUserByUsername('test_user1');
+        console.log('User after deletion:', checkUser);
         
         console.log('All tests completed successfully!');
     } catch (error) {
@@ -55,21 +61,58 @@ async function testQueries() {
     }
 }
 
+// Function to run filter and sort queries
 async function testFilterAndSortQueries(){
     
-    const filteredUsers = await getUsersWhere("username ILIKE 'Z%'");
-    // LIKE is case-sensitive by default, use ILIKE for case-insensitive search
-    console.log('Filtered users:', filteredUsers);
+    try {
+        const filteredUsers = await getUsersWhere("username ILIKE 'Z%'");
+        // LIKE is case-sensitive by default, use ILIKE for case-insensitive search
+        console.log('Filtered users:', filteredUsers);
 
-    const sortedUsers = await getSortedUsers('username', 'DESC');
-    console.log('Sorted users:', sortedUsers);
+        const sortedUsers = await getSortedUsers('username', 'DESC');
+        console.log('Sorted users:', sortedUsers);
 
-    const paginatedUsers = await getPaginatedUsers(2, 1);
-    /*
-     -> limit = 2 → Fetch 2 users per page.
-     -> offset = 1 → Skip the first user and start fetching from the second one.
-    */
-    console.log("Paginated Users", paginatedUsers);
+        const paginatedUsers = await getPaginatedUsers(2, 1);
+        /*
+        -> limit = 2 → Fetch 2 users per page.
+        -> offset = 1 → Skip the first user and start fetching from the second one.
+        */
+        console.log("Paginated Users", paginatedUsers);
+    } catch (error) {
+        console.error('Filter and sort tests failed:', error.message);
+    }
+}
+
+async function testRelationshipQuery(){
+    try {
+        // First create the tables
+        await createUsersTable();
+        await createPostsTable();
+        console.log('----------');
+
+        // Create test users first
+        const user1 = await insertUser('blog_user1', 'blogger1@example.com');
+        const user2 = await insertUser('blog_user2', 'blogger2@example.com');
+        console.log('Test users created');
+        console.log('----------');
+
+        // Create multiple posts for each user
+        console.log('Creating posts for users:');
+        await insertNewPost("User1's First Post", "Content for first post", user1.id);
+        await insertNewPost("User1's Second Post", "Content for second post", user1.id);
+        await insertNewPost("User2's First Post", "Content from another user", user2.id);
+        
+        // Test foreign key constraint with non-existent user
+        console.log('Testing foreign key constraint:');
+        try {
+            await insertNewPost("Invalid Post", "This should fail", 9999);
+        } catch (error) {
+            console.log('Successfully caught invalid user_id error');
+        }
+
+    } catch (error) {
+        console.error('Relationship tests failed:', error.message);
+    }
 }
 
 // Only run tests if this file is executed directly
@@ -85,7 +128,8 @@ if (require.main === module) {
     */ 
    Promise.all([
     testQueries(),
-    testFilterAndSortQueries()
+    testFilterAndSortQueries(),
+    testRelationshipQuery()
    ])
    .finally(() => {
     setTimeout(() => process.exit(0), 1000);
