@@ -13,6 +13,7 @@ const {
     deleteUser
 } = require('./concepts/01basic-queries');
 const { createPostsTable, insertNewPost } = require('./concepts/03relationships');
+const { getUsersWithPost, getAllUsersAndTheirPosts, findPostsByUsername, getUserPostStats } = require('./concepts/04joins');
 
 // Function to run all tests
 async function testQueries() {
@@ -115,6 +116,39 @@ async function testRelationshipQuery(){
     }
 }
 
+async function testJoinQuery(){
+    try {
+        console.log('Testing JOIN queries:');
+        console.log('----------');
+
+        // Test users with posts (INNER JOIN)
+        // console.log('1. Users with posts (INNER JOIN):');
+        // const usersWithPosts = await getUsersWithPost();
+        // console.log(`Found ${usersWithPosts.length} users with posts`);
+        // console.log('----------');
+
+        // Test all users and their posts (LEFT JOIN)
+        console.log('2. All users and their posts (LEFT JOIN):');
+        const allUsersWithPosts = await getAllUsersAndTheirPosts();
+        console.log(`Retrieved data for ${allUsersWithPosts.length} users`);
+        console.log('----------');
+
+        // Test user statistics
+        // console.log('3. User post statistics:');
+        // const userStats = await getUserPostStats();
+        // console.log('User statistics retrieved', userStats);
+        // console.log('----------');
+
+        // // Test finding posts by username
+        // console.log('4. Finding posts by username:');
+        // const userPosts = await findPostsByUsername('blog_user1');
+        // console.log(`Found ${userPosts.length} posts for blog_user1`);
+
+    } catch (error) {
+        console.error('Join query tests failed:', error.message);
+    }
+}
+
 // Only run tests if this file is executed directly
 if (require.main === module) {
     /*
@@ -127,9 +161,10 @@ if (require.main === module) {
     }) -> Wrong approach
     */ 
    Promise.all([
-    testQueries(),
-    testFilterAndSortQueries(),
-    testRelationshipQuery()
+    // testQueries(),
+    // testFilterAndSortQueries(),
+    // testRelationshipQuery(),
+    testJoinQuery()
    ])
    .finally(() => {
     setTimeout(() => process.exit(0), 1000);
