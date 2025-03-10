@@ -3,8 +3,8 @@ const { getAllBooksController, addBookController, deleteBookController } = requi
 
 const router = express.Router();
 
-// GET /api/books?page=1&limit=10&orderBy=title&sortOrder=asc
-router.get('/', getAllBooksController);
+// GET /api/books/get-all-books?page=1&limit=10&orderBy=title&sortOrder=asc
+router.get('/get-all-books', getAllBooksController);
 
 // POST /api/books/add-book
 router.post('/add-book', addBookController);
