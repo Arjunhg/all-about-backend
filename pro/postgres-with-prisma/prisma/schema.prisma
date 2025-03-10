@@ -11,8 +11,9 @@ datasource db {
 model Book{
   id Int @id @default(autoincrement())
   title String
-  publishData DateTime
-  author Author @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  publishDate DateTime
+  // author Author @relation(fields: [authorId], references: [id], onDelete: Cascade) : Don't use Cascade as it mismatch logic with authorService
+  author Author @relation(fields: [authorId], references: [id], onDelete: Restrict)
   authorId Int
 }
 

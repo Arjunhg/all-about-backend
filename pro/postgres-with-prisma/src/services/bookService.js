@@ -32,7 +32,15 @@ async function addBook(title, publishedDate, authorId) {
                 Isolation: Other database operations can't see the partial results of your transaction until it completes.
                 Consistency: Your database remains in a consistent state because related operations are grouped together.
             */
-            // Check if author exists
+            // Check if author exists and not duplicate book
+            const existingBook = await tx.book.findFirst({
+                where: {
+                    title, authorId
+                }
+            })
+            if(existingBook){
+                throw new Error('Book already exists');
+            }
             const authorExists = await tx.author.findUnique({
                 where: { id: authorId }
             });
@@ -41,10 +49,12 @@ async function addBook(title, publishedDate, authorId) {
                 throw new Error(`Author with ID ${authorId} not found`);
             }
 
+            const formattedDate = new Date(publishedDate).toISOString();
+
             return await tx.book.create({
                 data: {
                     title,
-                    publishedDate: new Date(publishedDate),
+                    publishedDate: formattedDate,
                     author: {
                         connect: { id: authorId }
                     },
@@ -63,8 +73,18 @@ async function addBook(title, publishedDate, authorId) {
 async function getAllBook(options = {}) {
     try {
         const { orderBy = 'title', sortOrder = 'asc', page = 1, limit = 10 } = options;
+
+        const validOrderFields = ['id', 'title', 'publisedDate'];
+        if(!validOrderFields.includes(orderBy)){
+            throw new Error(`Invalid orderBy field: ${orderBy}. Valid fields are ${validOrderFields.join(', ')}`);
+        }
+
+        const sortedOrder = sortOrder.toLowerCase() === 'asc' ? 'asc' : 'desc';
+
+        const pageNumber = Math.max(parseInt(page) || 1, 1);
+        const limitNumber = Math.max(parseInt(limit) || 10, 1);
         
-        const skip = (page - 1) * limit;
+        const skip = (pageNumber - 1) * limitNumber;
         const [total, books] = await prisma.$transaction([
             prisma.book.count(),
             prisma.book.findMany({ //returns array
@@ -72,7 +92,7 @@ async function getAllBook(options = {}) {
                     author: true
                 },
                 orderBy: {
-                    [orderBy]: sortOrder
+                    [orderBy]: sortedOrder
                 },
                 skip,
                 take: limit
@@ -83,9 +103,9 @@ async function getAllBook(options = {}) {
             books,
             pagination: {
                 total,
-                page,
-                limit,
-                totalPages: Math.ceil(total / limit)
+                page: pageNumber,
+                limit: limitNumber,
+                totalPages: Math.ceil(total / limitNumber)
             }
         };
     } catch (error) {
@@ -187,10 +207,6 @@ async function updateBook({id, newTitle, newPublishedDate}){
 
 async function deleteBook(id) {
     try {
-        if (!id || typeof id !== 'number') {
-            throw new Error('Invalid book ID');
-        }
-
         return await prisma.$transaction(async (tx) => {
             const book = await tx.book.findUnique({
                 where: { id }
