@@ -23,6 +23,7 @@ services:
       - DATABASE_URL=postgresql://postgres:root@database:5432/prisma-with-postgres?schema=public
       - PORT=3000
     ports:
+      - "3000:3000"
       - "3006:3000" # http://localhost:3006/api/authors/add-author
     volumes:
       - .:/usr/src/app
