@@ -1,0 +1,21 @@
+groups:
+- name: api_alerts
+  rules:
+  - alert: HighErrorRate
+    expr: sum(rate(http_request_errors_total[5m])) / 
+     sum(rate(http_requests_total[5m])) > 0.05 #5m -> 5 minutes
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High error rate detected"
+      description: "Error rate is above 5% for the last 5 minutes"
+      
+  - alert: SlowResponseTime
+    expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 1
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Slow API responses"
+      description: "95th percentile of response time is above 1 second for the last 5 minutes"
