@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+const { trackDbQuery } = require('../metrics/metrics');
 
 const prisma = new PrismaClient();
 
@@ -21,7 +22,7 @@ function validateBookInput(title, publishedDate, authorId) {
     }
 }
 
-async function addBook(title, publishedDate, authorId) {
+const addBook = trackDbQuery("INSERT", "book", async function addBook(title, publishedDate, authorId) {
     try {
         validateBookInput(title, publishedDate, authorId);
 
@@ -68,9 +69,9 @@ async function addBook(title, publishedDate, authorId) {
         console.error('Error adding book:', error.message);
         throw error;
     }
-}
+})
 
-async function getAllBook(options = {}) {
+const getAllBook = trackDbQuery("SELECT", "book", async function getAllBook(options = {}) {
     try {
         const { orderBy = 'title', sortOrder = 'asc', page = 1, limit = 10 } = options;
 
@@ -112,9 +113,9 @@ async function getAllBook(options = {}) {
         console.error('Error getting books:', error.message);
         throw error;
     }
-}
+})
 
-async function getBookById(id) {
+const getBookById = trackDbQuery("SELECT", "book", async function getBookById(id) {
     try {
         if (!id || typeof id !== 'number') {
             throw new Error('Invalid book ID');
@@ -136,9 +137,9 @@ async function getBookById(id) {
         console.error('Error getting book by id:', error.message);
         throw error;
     }
-}
+})
 
-async function updateBook({id, newTitle, newPublishedDate}){
+const updateBook = trackDbQuery("UPDATE", "book", async function updateBook({id, newTitle, newPublishedDate}){
     try {
           /*
         const updatedBook = await prisma.book.update({
@@ -203,9 +204,9 @@ async function updateBook({id, newTitle, newPublishedDate}){
         console.error('Error updating book', error);
         throw error;
     }
-}
+})
 
-async function deleteBook(id) {
+const deleteBook = trackDbQuery("DELETE", "book", async function deleteBook(id) {
     try {
         return await prisma.$transaction(async (tx) => {
             const book = await tx.book.findUnique({
@@ -227,7 +228,7 @@ async function deleteBook(id) {
         console.error('Error deleting book:', error.message);
         throw error;
     }
-}
+})
 
 // Cache the Prisma instance cleanup for process termination
 process.on('beforeExit', async () => {
