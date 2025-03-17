@@ -4,6 +4,7 @@ const {
     deleteAuthorController, 
     getAllAuthorsController
 } = require('../controller/authorController');
+const { metrics } = require('../metrics/metrics');
 
 const router = express.Router();
 
@@ -11,7 +12,17 @@ const router = express.Router();
 router.get('/get-all-authors', getAllAuthorsController);
 
 // POST /api/authors/add-author
-router.post('/add-author', addAuthorController);
+// Wrap controller in metrics middleware to track request metrics
+router.post('/add-author', (req, res, next) => {
+
+    res.on('finish', () => { //✅ Runs after response is fully sent
+        if(res.statusCode >= 200 && res.statusCode < 300){
+            metrics.authorCreatedCounter.inc();
+        }
+    })
+
+    addAuthorController(req, res, next);// ✅ Runs first
+});
 
 // DELETE /api/authors/:id
 router.delete('/:id', deleteAuthorController);
