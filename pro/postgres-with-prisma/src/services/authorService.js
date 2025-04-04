@@ -1,4 +1,5 @@
 const { PrismaClient, Prisma } = require('@prisma/client');
+const { trackDbQuery } = require('../metrics/metrics');
 
 const prisma = new PrismaClient();
 
@@ -8,7 +9,7 @@ function validateAuthorInput(name){
     }
 }
 
-async function addAuthor(name){
+const addAuthor = trackDbQuery("INSERT", "author", async function addAuthor(name){
     try {
         
         validateAuthorInput(name);
@@ -40,9 +41,9 @@ async function addAuthor(name){
         console.error('Error adding author:', error.message);
         throw error;
     }
-}
+})
 
-async function getAllAuthors(options = {}){
+const getAllAuthors = trackDbQuery("SELECT", "author", async function getAllAuthors(options = {}){
     try {
         const { orderBy='name', sortOrder='asc', page=1, limit=10 } = options;
 
@@ -86,9 +87,9 @@ async function getAllAuthors(options = {}){
         console.error('Error getting authors:', error.message);
         throw error;
     }
-}
+})
 
-async function deleteAuthor(id){
+const deleteAuthor = trackDbQuery("DELETE", "author", async function deleteAuthor(id){
     try {
 
         return await prisma.$transaction(async(tx) => {
@@ -125,6 +126,7 @@ async function deleteAuthor(id){
         throw error;
     }
 }
+)
 
 let isDisconnecting = false;
 
